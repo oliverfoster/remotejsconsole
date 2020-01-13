@@ -111,7 +111,7 @@
   var head = document.querySelector("head");
   var style = document.createElement("style");
   style.setAttribute('rel','stylesheet');
-  style.textContent = '.__remotejsconsole_highlighted { position:relative; } .__remotejsconsole_highlighted:after { content: " "; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,255,0.5);  } ';
+  style.textContent = '.__remotejsconsole_highlighted_relative { position:relative; } .__remotejsconsole_highlighted:after { content: " "; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,255,0.5);  } ';
   head.appendChild(style);
 
   var maxDepth = 3;
@@ -441,11 +441,16 @@
       var element = remote.fetchElementByJSConsoleId(remotejsconsole_id);
       if (highlightedElement && element && highlightedElement.isSameNode(element)) return;
       if (highlightedElement) {
+
         highlightedElement.classList.remove("__remotejsconsole_highlighted");
+        highlightedElement.classList.remove("__remotejsconsole_highlighted_relative");
         highlightedElement = null;
       }
       if (!element) return;
       highlightedElement = element;
+      if (!window.getComputedStyle(highlightedElement).position) {
+        highlightedElement.classList.add("__remotejsconsole_highlighted_relative");
+      }
       highlightedElement.classList.add("__remotejsconsole_highlighted");
     },
     log: function () {

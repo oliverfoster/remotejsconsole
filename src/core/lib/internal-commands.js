@@ -4,6 +4,13 @@ import consoleParse from './console-parse';
 const version = process.env.REACT_APP_VERSION;
 const API = process.env.REACT_APP_API || '';
 
+let ips = ['127.0.0.1'];
+(async function() {
+  const res = await fetch('./ips/');
+  ips = await res.json();
+})();
+
+
 
 const welcome = () => ({
   value: `Use <strong>:help</strong> to show remotejsconsole commands
@@ -20,13 +27,16 @@ const help = () => ({
 :about
 :version
 
+IP Addresses `+ips.map(ip=>{ return `<a href="http://${ip}">${ip}</a>`;}).join(', ')+`
+
 ${about().value}`,
   html: true,
 });
 
 const about = () => ({
   value:
-    'Forked from <a href="https://twitter.com/rem" target="_blank">@rem</a> • <a href="https://github.com/remy/remotejsconsole" target="_blank">open source</a> • <a href="https://www.paypal.me/rem/9.99usd" target="_blank">donate</a>',
+    `Forked from <a href="https://twitter.com/rem" target="_blank">@rem</a> • <a href="https://github.com/remy/jsconsole" target="_blank">open source</a> • <a href="https://www.paypal.me/rem/9.99usd" target="_blank">donate</a>
+Modified by <a href="https://github.com/oliverfoster" target="_blank">oliverfoster</a> • <a href="https://github.com/oliverfoster/remotejsconsole" target="_blank">open source</a>`,
   html: true,
 });
 
