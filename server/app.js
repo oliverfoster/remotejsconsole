@@ -6,6 +6,7 @@ const uuid = require('node-uuid').v4;
 const ES = require('./es');
 const cors = require('./cors');
 const version = require(__dirname + '/../package.json').version;
+const open = require('open');
 
 module.exports = function(PORT) {
 
@@ -69,6 +70,7 @@ module.exports = function(PORT) {
 
   const server = app.listen(process.env.PORT || PORT || 8000, () => {
     console.log('listening on http://localhost:%s', server.address().port);
+    open(`http://localhost:${server.address().port}`);
   });
 
 };
