@@ -280,6 +280,8 @@
     enumerable: false
   });
 
+  window.$_ = document.body;
+
   var remote = {
     size: function(selector) {
       var element;
@@ -365,14 +367,18 @@
     capture: function(selector) {
       if (selector) {
         var elements = [].slice.call(document.querySelectorAll(selector));
-        if (!elements.length) return remote.log(undefined);
-        if (elements.length === 1) return remote.log(elements[0]);
+        if (!elements.length) {
+          return undefined;
+        }
+        if (elements.length === 1) {
+          window.$_ = elements[0];
+          return elements[0];
+        }
         if (elements.length > 60) {
           elements = elements.slice(0,60);
           elements.push("truncated...");
         }
-        remote.log(elements);
-        return;
+        return elements;
       }
       if (inCapture) {
         document.body.removeEventListener("click", inCapture, {
@@ -391,6 +397,7 @@
           passive: false
         });
         inCapture = false;
+        window.$_ = e.target;
         remote.log(e.target);
       }
       document.body.addEventListener("click", inCapture, {
@@ -424,6 +431,7 @@
           rtn.push.apply(rtn, children);
           return rtn;
         default:
+          window.$_ = target;
           return target;
       }
     },

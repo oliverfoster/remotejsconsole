@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0eb4b1dcb9976a79a76c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "eacb3b18d594002e23e8"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1832,7 +1832,7 @@ var stripAnsi = __webpack_require__(/*! strip-ansi */ "./node_modules/strip-ansi
 var hasAnsi = __webpack_require__(/*! has-ansi */ "./node_modules/has-ansi/index.js");
 var supportsColor = __webpack_require__(/*! supports-color */ "./node_modules/chalk/node_modules/supports-color/index.js");
 var defineProps = Object.defineProperties;
-var isSimpleWindowsTerm = process.platform === 'win32' && !/^xterm/i.test(__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.2"}).TERM);
+var isSimpleWindowsTerm = process.platform === 'win32' && !/^xterm/i.test(__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}).TERM);
 
 function Chalk(options) {
 	// detect mode if not set manually
@@ -2045,7 +2045,7 @@ var hasFlag = function (flag) {
 };
 
 module.exports = (function () {
-	if ('FORCE_COLOR' in __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.2"})) {
+	if ('FORCE_COLOR' in __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"})) {
 		return true;
 	}
 
@@ -2070,15 +2070,15 @@ module.exports = (function () {
 		return true;
 	}
 
-	if ('COLORTERM' in __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.2"})) {
+	if ('COLORTERM' in __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"})) {
 		return true;
 	}
 
-	if (__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.2"}).TERM === 'dumb') {
+	if (__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}).TERM === 'dumb') {
 		return false;
 	}
 
-	if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.2"}).TERM)) {
+	if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}).TERM)) {
 		return true;
 	}
 
@@ -3888,7 +3888,7 @@ function load() {
 
   // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
   if (!r && typeof process !== 'undefined' && 'env' in process) {
-    r = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.2"}).DEBUG;
+    r = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}).DEBUG;
   }
 
   return r;
@@ -6989,6 +6989,41 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 };
 
 module.exports = invariant;
+
+
+/***/ }),
+
+/***/ "./node_modules/js-tokens/index.js":
+/* no static exports found */
+/* all exports used */
+/*!******************************!*\
+  !*** ./~/js-tokens/index.js ***!
+  \******************************/
+/***/ (function(module, exports) {
+
+// Copyright 2014, 2015, 2016, 2017 Simon Lydell
+// License: MIT. (See LICENSE.)
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+})
+
+// This regex comes from regex.coffee, and is inserted here by generate-index.js
+// (run `npm run build`).
+exports.default = /((['"])(?:(?!\2|\\).|\\(?:\r\n|[\s\S]))*(\2)?|`(?:[^`\\$]|\\[\s\S]|\$(?!\{)|\$\{(?:[^{}]|\{[^}]*\}?)*\}?)*(`)?)|(\/\/.*)|(\/\*(?:[^*]|\*(?!\/))*(\*\/)?)|(\/(?!\*)(?:\[(?:(?![\]\\]).|\\.)*\]|(?![\/\]\\]).|\\.)+\/(?:(?!\s*(?:\b|[\u0080-\uFFFF$\\'"~({]|[+\-!](?!=)|\.?\d))|[gmiyu]{1,5}\b(?![\u0080-\uFFFF$\\]|\s*(?:[+\-*%&|^<>!=?({]|\/(?![\/*])))))|(0[xX][\da-fA-F]+|0[oO][0-7]+|0[bB][01]+|(?:\d*\.\d+|\d+\.?)(?:[eE][+-]?\d+)?)|((?!\d)(?:(?!\s)[$\w\u0080-\uFFFF]|\\u[\da-fA-F]{4}|\\u\{[\da-fA-F]+\})+)|(--|\+\+|&&|\|\||=>|\.{3}|(?:[+\-\/%&|^]|\*{1,2}|<{1,2}|>{1,3}|!=?|={1,2})=?|[?~.,:;[\](){}])|(\s+)|(^$|[\s\S])/g
+
+exports.matchToToken = function(match) {
+  var token = {type: "invalid", value: match[0]}
+       if (match[ 1]) token.type = "string" , token.closed = !!(match[3] || match[4])
+  else if (match[ 5]) token.type = "comment"
+  else if (match[ 6]) token.type = "comment", token.closed = !!match[7]
+  else if (match[ 8]) token.type = "regex"
+  else if (match[ 9]) token.type = "number"
+  else if (match[10]) token.type = "name"
+  else if (match[11]) token.type = "punctuator"
+  else if (match[12]) token.type = "whitespace"
+  return token
+}
 
 
 /***/ }),
@@ -17884,7 +17919,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/fbjs/l
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.2"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -28179,7 +28214,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/fbjs/l
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.2"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -28602,7 +28637,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/fbjs/l
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.2"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -33306,7 +33341,7 @@ exports.default = function (rawLines, lineNumber, colNumber) {
   }
 };
 
-var _jsTokens = __webpack_require__(/*! js-tokens */ "./node_modules/react-error-overlay/node_modules/js-tokens/index.js");
+var _jsTokens = __webpack_require__(/*! js-tokens */ "./node_modules/js-tokens/index.js");
 
 var _jsTokens2 = _interopRequireDefault(_jsTokens);
 
@@ -33390,41 +33425,6 @@ function highlight(defs, text) {
 }
 
 module.exports = exports["default"];
-
-/***/ }),
-
-/***/ "./node_modules/react-error-overlay/node_modules/js-tokens/index.js":
-/* no static exports found */
-/* all exports used */
-/*!****************************************************!*\
-  !*** ./~/react-error-overlay/~/js-tokens/index.js ***!
-  \****************************************************/
-/***/ (function(module, exports) {
-
-// Copyright 2014, 2015, 2016, 2017 Simon Lydell
-// License: MIT. (See LICENSE.)
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-})
-
-// This regex comes from regex.coffee, and is inserted here by generate-index.js
-// (run `npm run build`).
-exports.default = /((['"])(?:(?!\2|\\).|\\(?:\r\n|[\s\S]))*(\2)?|`(?:[^`\\$]|\\[\s\S]|\$(?!\{)|\$\{(?:[^{}]|\{[^}]*\}?)*\}?)*(`)?)|(\/\/.*)|(\/\*(?:[^*]|\*(?!\/))*(\*\/)?)|(\/(?!\*)(?:\[(?:(?![\]\\]).|\\.)*\]|(?![\/\]\\]).|\\.)+\/(?:(?!\s*(?:\b|[\u0080-\uFFFF$\\'"~({]|[+\-!](?!=)|\.?\d))|[gmiyu]{1,5}\b(?![\u0080-\uFFFF$\\]|\s*(?:[+\-*%&|^<>!=?({]|\/(?![\/*])))))|(0[xX][\da-fA-F]+|0[oO][0-7]+|0[bB][01]+|(?:\d*\.\d+|\d+\.?)(?:[eE][+-]?\d+)?)|((?!\d)(?:(?!\s)[$\w\u0080-\uFFFF]|\\u[\da-fA-F]{4}|\\u\{[\da-fA-F]+\})+)|(--|\+\+|&&|\|\||=>|\.{3}|(?:[+\-\/%&|^]|\*{1,2}|<{1,2}|>{1,3}|!=?|={1,2})=?|[?~.,:;[\](){}])|(\s+)|(^$|[\s\S])/g
-
-exports.matchToToken = function(match) {
-  var token = {type: "invalid", value: match[0]}
-       if (match[ 1]) token.type = "string" , token.closed = !!(match[3] || match[4])
-  else if (match[ 5]) token.type = "comment"
-  else if (match[ 6]) token.type = "comment", token.closed = !!match[7]
-  else if (match[ 8]) token.type = "regex"
-  else if (match[ 9]) token.type = "number"
-  else if (match[10]) token.type = "name"
-  else if (match[11]) token.type = "punctuator"
-  else if (match[12]) token.type = "whitespace"
-  return token
-}
-
 
 /***/ }),
 
@@ -40124,7 +40124,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/fbjs/l
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.2"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -57304,8 +57304,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 /*global window EventSource fetch */
 
 
-var _version = "0.1.2";
-var API = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.2"}).REACT_APP_API || '';
+var _version = "0.1.3";
+var API = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}).REACT_APP_API || '';
 
 var ips = ['127.0.0.1'];
 _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -57342,7 +57342,7 @@ var welcome = function welcome() {
 
 var help = function help() {
   return {
-    value: ':listen [id] - starts remote debugging session\n:capture [selector] - capture element in remote session by clicking or providing a selector\n:theme dark|light\n:clear\n:history\n:about\n:version\n\nIP Addresses ' + ips.map(function (ip) {
+    value: ':listen [id] - starts remote debugging session\n:capture [selector] - capture element in remote session by clicking or providing a selector\n:theme dark|light\n:clear\n:history\n:about\n:version\n\n$_ = last element\n\nIP Addresses ' + ips.map(function (ip) {
       return '<a href="http://' + ip + '">' + ip + '</a>';
     }).join(', ') + ('\n\n' + about().value),
     html: true
@@ -57490,7 +57490,7 @@ var capture = function () {
         switch (_context5.prev = _context5.next) {
           case 0:
             if (selector) {
-              app.onRun('console.capture("' + (selector || '') + '")', '', true);
+              app.onRun('console.capture("' + (selector || '') + '")', '', false);
             } else {
               app.onRun('console.capture()', '', false);
             }

@@ -27,6 +27,8 @@ const help = () => ({
 :about
 :version
 
+$_ = last element
+
 IP Addresses `+ips.map(ip=>{ return `<a href="http://${ip}">${ip}</a>`;}).join(', ')+`
 
 ${about().value}`,
@@ -82,7 +84,7 @@ const history = async ({ app, args: [n = null] }) => {
 
 const capture = async ({ args: [selector], app }) => {
   if (selector) {
-    app.onRun(`console.capture("${selector||''}")`, '', true);
+    app.onRun(`console.capture("${selector||''}")`, '', false);
   } else {
     app.onRun('console.capture()', '', false);
   }
