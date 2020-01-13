@@ -1,0 +1,8 @@
+.node-preview {
+  display: inline-block;
+  max-width: 400px;
+  vertical-align: bottom;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

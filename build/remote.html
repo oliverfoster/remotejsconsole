@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset=utf-8 />
+  <title>remotejsconsole</title>
+</head>
+
+<body>
+  <script src="/js/EventSource.js"></script>
+  <script>
+    /* jshint browser:true */
+    var id = window.location.search.replace(/.*\?/, '');
+    var origin = null;
+    window.addEventListener('message', function (event) {
+      origin = event.origin;
+      if (event.data === '__init__' || typeof event.data !== 'string') {
+        return;
+      }
+      var xhr = new XMLHttpRequest();
+      var params = 'data=' + encodeURIComponent(event.data);
+      xhr.open('POST', '/remote/' + id + '/log', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.send(params);
+    }, false);
+    setTimeout(function () {
+      var sse = new EventSource('/remote/' + id + '/run');
+      sse.addEventListener("message", function (event) {
+        window.top.postMessage({
+          payload: event.data,
+          silent: false
+        }, origin);
+      });
+      sse.addEventListener("silent", function (event) {
+        window.top.postMessage({
+          payload: event.data,
+          silent: true
+        }, origin);
+      });
+    }, 13);
+
+  </script>
+</body>
+
+</html>
