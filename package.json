@@ -1,5 +1,5 @@
 {
-  "name": "remotejsconsole",
+  "name": "remotejsconsole-cli",
   "version": "0.1.0",
   "bin": {
       "remotejsconsole": "bin/index.js"
@@ -145,13 +145,13 @@
   "description": "Web based console - for in app debugging",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oliverfoster/remotejsconsole.git"
+    "url": "git+https://github.com/oliverfoster/remotejsconsole-cli.git"
   },
   "keywords": [],
   "author": "Remy Sharp <remy@leftlogic.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/oliverfoster/remotejsconsole/issues"
+    "url": "https://github.com/oliverfoster/remotejsconsole-cli/issues"
   },
   "homepage": ""
 }
