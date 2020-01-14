@@ -28,7 +28,9 @@ module.exports = function(PORT, SPORT, NOCORS) {
     app.use(cors);
   } else {
     console.log("Not using cors...");
-    cors = null;
+    cors = function(res, req, next) {
+      next();
+    };
   }
 
   app.get('/ips/', (req, res)=>{
