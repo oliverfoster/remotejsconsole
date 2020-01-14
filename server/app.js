@@ -26,6 +26,7 @@ module.exports = function(PORT, SPORT, NOCORS) {
   if (!NOCORS) {
     console.log("Using cors...");
     app.use(cors);
+    cors = null;
   } else {
     console.log("Not using cors...");
   }
