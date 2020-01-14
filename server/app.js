@@ -10,7 +10,7 @@ const version = require(__dirname + '/../package.json').version;
 const open = require('open');
 
 
-module.exports = function(PORT, SPORT) {
+module.exports = function(PORT, SPORT, NOCORS) {
 
   const app = express();  
 
@@ -23,7 +23,7 @@ module.exports = function(PORT, SPORT) {
   app.use(bodyParser.json( { limit: '100MB', inflate: true } ));
   app.disable('x-powered-by');
 
-  app.use(cors);
+  if (!NOCORS) app.use(cors);
 
   app.get('/ips/', (req, res)=>{
     const ips = [];
