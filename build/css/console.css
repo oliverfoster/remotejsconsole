@@ -24,7 +24,7 @@ body { overflow: auto; }
 #console span.gutter { float: left; display: block; width: 5px; }
 
 #output li div { position: relative; }
-#output .echo .permalink {position: absolute;right: 0;overflow: hidden;/* display: block; */background: url(/assets/share.svg) no-repeat center;height: 20px;width: 18px;text-indent: -200px;top: 0;opacity: 0.2;background-size: contain;/* display: none; */}
+#output .echo .permalink {position: absolute;right: 0;overflow: hidden;/* display: block; */background: url(../../assets/share.svg) no-repeat center;height: 20px;width: 18px;text-indent: -200px;top: 0;opacity: 0.2;background-size: contain;/* display: none; */}
 #output .echo:hover .permalink {display: block; }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
@@ -41,10 +41,10 @@ body { overflow: auto; }
 
 /* log types */
 #output span.gutter:before { position: absolute; }
-#output .echo span.gutter:before {content: '';color: #3583FC;font-size: 18px;font-weight: bold;background: url(/assets/prompt.svg) no-repeat;background-size: contain;width: 16px;height: 20px;scale: 0.75;background-position: 50% 50%;}
-#output .info span.gutter:before {content: '';color: #27A700;font-size: 18px;font-weight: bold;background: url(/assets/info.svg) no-repeat;height: 20px;width: 16px;background-size: contain;background-position: 50%;}
-#output .error span.gutter:before {content: ' ';color: #E81D20;font-size: 28px;font-weight: bold;margin-right: -10px;line-height: 24px;background: url(/assets/error.svg) no-repeat;background-size: contain;height: 19px;background-position: 50%;}
-#output .response span.gutter:before {content: '';color: #BDC3CD;font-size: 18px;font-weight: normal;margin-right: -10px;line-height: 18px;height: 19px;width: 16px;background: url(/assets/out.svg) no-repeat;background-size: contain;scale: 0.75;}
+#output .echo span.gutter:before {content: '';color: #3583FC;font-size: 18px;font-weight: bold;background: url(../../assets/prompt.svg) no-repeat;background-size: contain;width: 16px;height: 20px;scale: 0.75;background-position: 50% 50%;}
+#output .info span.gutter:before {content: '';color: #27A700;font-size: 18px;font-weight: bold;background: url(../../assets/info.svg) no-repeat;height: 20px;width: 16px;background-size: contain;background-position: 50%;}
+#output .error span.gutter:before {content: ' ';color: #E81D20;font-size: 28px;font-weight: bold;margin-right: -10px;line-height: 24px;background: url(../../assets/error.svg) no-repeat;background-size: contain;height: 19px;background-position: 50%;}
+#output .response span.gutter:before {content: '';color: #BDC3CD;font-size: 18px;font-weight: normal;margin-right: -10px;line-height: 18px;height: 19px;width: 16px;background: url(../../assets/out.svg) no-repeat;background-size: contain;scale: 0.75;}
 
 /* if response is directly next to echo, don't give it a line - only consoles get lines */
 #output li.echo + li.response { border-width: 0px; }

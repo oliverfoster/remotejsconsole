@@ -2,11 +2,11 @@
 import consoleParse from './console-parse';
 
 const version = process.env.REACT_APP_VERSION;
-const API = process.env.REACT_APP_API || '';
+const API = process.env.REACT_APP_API || '.';
 
 let ips = ['127.0.0.1'];
 (async function() {
-  const res = await fetch('./ips/');
+  const res = await fetch(`${API}/ips/`);
   ips = await res.json();
 })();
 
@@ -29,7 +29,7 @@ const help = () => ({
 
 $_ = last element
 
-IP Addresses `+ips.map(ip=>{ return `<a href="http://${ip}">${ip}</a>`;}).join(', ')+`
+IP Addresses `+ips.map(ip=>{ return `<a href="${window.location.protocol}//${ip}">${ip}</a>`;}).join(', ')+`
 
 ${about().value}`,
   html: true,

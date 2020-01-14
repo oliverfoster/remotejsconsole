@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "eacb3b18d594002e23e8"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "149ffeec7727d383b1f8"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -700,7 +700,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
@@ -6989,41 +6989,6 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 };
 
 module.exports = invariant;
-
-
-/***/ }),
-
-/***/ "./node_modules/js-tokens/index.js":
-/* no static exports found */
-/* all exports used */
-/*!******************************!*\
-  !*** ./~/js-tokens/index.js ***!
-  \******************************/
-/***/ (function(module, exports) {
-
-// Copyright 2014, 2015, 2016, 2017 Simon Lydell
-// License: MIT. (See LICENSE.)
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-})
-
-// This regex comes from regex.coffee, and is inserted here by generate-index.js
-// (run `npm run build`).
-exports.default = /((['"])(?:(?!\2|\\).|\\(?:\r\n|[\s\S]))*(\2)?|`(?:[^`\\$]|\\[\s\S]|\$(?!\{)|\$\{(?:[^{}]|\{[^}]*\}?)*\}?)*(`)?)|(\/\/.*)|(\/\*(?:[^*]|\*(?!\/))*(\*\/)?)|(\/(?!\*)(?:\[(?:(?![\]\\]).|\\.)*\]|(?![\/\]\\]).|\\.)+\/(?:(?!\s*(?:\b|[\u0080-\uFFFF$\\'"~({]|[+\-!](?!=)|\.?\d))|[gmiyu]{1,5}\b(?![\u0080-\uFFFF$\\]|\s*(?:[+\-*%&|^<>!=?({]|\/(?![\/*])))))|(0[xX][\da-fA-F]+|0[oO][0-7]+|0[bB][01]+|(?:\d*\.\d+|\d+\.?)(?:[eE][+-]?\d+)?)|((?!\d)(?:(?!\s)[$\w\u0080-\uFFFF]|\\u[\da-fA-F]{4}|\\u\{[\da-fA-F]+\})+)|(--|\+\+|&&|\|\||=>|\.{3}|(?:[+\-\/%&|^]|\*{1,2}|<{1,2}|>{1,3}|!=?|={1,2})=?|[?~.,:;[\](){}])|(\s+)|(^$|[\s\S])/g
-
-exports.matchToToken = function(match) {
-  var token = {type: "invalid", value: match[0]}
-       if (match[ 1]) token.type = "string" , token.closed = !!(match[3] || match[4])
-  else if (match[ 5]) token.type = "comment"
-  else if (match[ 6]) token.type = "comment", token.closed = !!match[7]
-  else if (match[ 8]) token.type = "regex"
-  else if (match[ 9]) token.type = "number"
-  else if (match[10]) token.type = "name"
-  else if (match[11]) token.type = "punctuator"
-  else if (match[12]) token.type = "whitespace"
-  return token
-}
 
 
 /***/ }),
@@ -33341,7 +33306,7 @@ exports.default = function (rawLines, lineNumber, colNumber) {
   }
 };
 
-var _jsTokens = __webpack_require__(/*! js-tokens */ "./node_modules/js-tokens/index.js");
+var _jsTokens = __webpack_require__(/*! js-tokens */ "./node_modules/react-error-overlay/node_modules/js-tokens/index.js");
 
 var _jsTokens2 = _interopRequireDefault(_jsTokens);
 
@@ -33425,6 +33390,41 @@ function highlight(defs, text) {
 }
 
 module.exports = exports["default"];
+
+/***/ }),
+
+/***/ "./node_modules/react-error-overlay/node_modules/js-tokens/index.js":
+/* no static exports found */
+/* all exports used */
+/*!****************************************************!*\
+  !*** ./~/react-error-overlay/~/js-tokens/index.js ***!
+  \****************************************************/
+/***/ (function(module, exports) {
+
+// Copyright 2014, 2015, 2016, 2017 Simon Lydell
+// License: MIT. (See LICENSE.)
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+})
+
+// This regex comes from regex.coffee, and is inserted here by generate-index.js
+// (run `npm run build`).
+exports.default = /((['"])(?:(?!\2|\\).|\\(?:\r\n|[\s\S]))*(\2)?|`(?:[^`\\$]|\\[\s\S]|\$(?!\{)|\$\{(?:[^{}]|\{[^}]*\}?)*\}?)*(`)?)|(\/\/.*)|(\/\*(?:[^*]|\*(?!\/))*(\*\/)?)|(\/(?!\*)(?:\[(?:(?![\]\\]).|\\.)*\]|(?![\/\]\\]).|\\.)+\/(?:(?!\s*(?:\b|[\u0080-\uFFFF$\\'"~({]|[+\-!](?!=)|\.?\d))|[gmiyu]{1,5}\b(?![\u0080-\uFFFF$\\]|\s*(?:[+\-*%&|^<>!=?({]|\/(?![\/*])))))|(0[xX][\da-fA-F]+|0[oO][0-7]+|0[bB][01]+|(?:\d*\.\d+|\d+\.?)(?:[eE][+-]?\d+)?)|((?!\d)(?:(?!\s)[$\w\u0080-\uFFFF]|\\u[\da-fA-F]{4}|\\u\{[\da-fA-F]+\})+)|(--|\+\+|&&|\|\||=>|\.{3}|(?:[+\-\/%&|^]|\*{1,2}|<{1,2}|>{1,3}|!=?|={1,2})=?|[?~.,:;[\](){}])|(\s+)|(^$|[\s\S])/g
+
+exports.matchToToken = function(match) {
+  var token = {type: "invalid", value: match[0]}
+       if (match[ 1]) token.type = "string" , token.closed = !!(match[3] || match[4])
+  else if (match[ 5]) token.type = "comment"
+  else if (match[ 6]) token.type = "comment", token.closed = !!match[7]
+  else if (match[ 8]) token.type = "regex"
+  else if (match[ 9]) token.type = "number"
+  else if (match[10]) token.type = "name"
+  else if (match[11]) token.type = "punctuator"
+  else if (match[12]) token.type = "whitespace"
+  return token
+}
+
 
 /***/ }),
 
@@ -52300,7 +52300,7 @@ function setLayout(value) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_run__ = __webpack_require__(/*! ../lib/run */ "./src/core/lib/run.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lib_internal_commands__ = __webpack_require__(/*! ../lib/internal-commands */ "./src/core/lib/internal-commands.js");
 
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\App.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\App.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -52576,7 +52576,7 @@ App.contextTypes = { store: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.o
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Line__ = __webpack_require__(/*! ./Line */ "./src/core/components/Line.js");
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\Console.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\Console.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -52843,7 +52843,7 @@ var Console = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_keycodes__ = __webpack_require__(/*! ../lib/keycodes */ "./src/core/lib/keycodes.js");
 
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\Input.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\Input.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -53071,7 +53071,7 @@ var Input = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__LineNav__ = __webpack_require__(/*! ./LineNav */ "./src/core/components/LineNav.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_which_type__ = __webpack_require__(/*! ../lib/which-type */ "./src/core/lib/which-type.js");
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\Line.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\Line.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -53243,7 +53243,7 @@ var Line = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_copy_to_clipboard__ = __webpack_require__(/*! react-copy-to-clipboard */ "./node_modules/react-copy-to-clipboard/lib/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_copy_to_clipboard___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_copy_to_clipboard__);
 
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\LineNav.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\LineNav.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -53462,7 +53462,7 @@ var LineNav = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash_flatten__ = __webpack_require__(/*! lodash/flatten */ "./node_modules/lodash/flatten.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash_flatten___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash_flatten__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_which_type__ = __webpack_require__(/*! ../../lib/which-type */ "./src/core/lib/which-type.js");
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\ArrayType.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\ArrayType.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -53791,7 +53791,7 @@ var ArrayType = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\BooleanType.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\BooleanType.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -53854,7 +53854,7 @@ var BooleanType = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_which_type__ = __webpack_require__(/*! ../../lib/which-type */ "./src/core/lib/which-type.js");
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\EntryType.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\EntryType.js';
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
@@ -54100,7 +54100,7 @@ var EntryType = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ObjectType__ = __webpack_require__(/*! ./ObjectType */ "./src/core/components/types/ObjectType.js");
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\ErrorType.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\ErrorType.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -54177,7 +54177,7 @@ var ErrorType = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ObjectType__ = __webpack_require__(/*! ./ObjectType */ "./src/core/components/types/ObjectType.js");
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\FunctionType.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\FunctionType.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -54287,7 +54287,7 @@ var FunctionType = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash_flatten___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_lodash_flatten__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ErrorType__ = __webpack_require__(/*! ./ErrorType */ "./src/core/components/types/ErrorType.js");
 
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\HTMLElementType.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\HTMLElementType.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -55513,7 +55513,7 @@ var HTMLElementType = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\NullType.js";
+var _jsxFileName = "C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\NullType.js";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -55573,7 +55573,7 @@ var NullType = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\NumberType.js";
+var _jsxFileName = "C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\NumberType.js";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -55645,7 +55645,7 @@ var NumberType = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash_flatten___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_lodash_flatten__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ErrorType__ = __webpack_require__(/*! ./ErrorType */ "./src/core/components/types/ErrorType.js");
 
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\ObjectType.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\ObjectType.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -56217,7 +56217,7 @@ var ObjectType = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_which_type__ = __webpack_require__(/*! ../../lib/which-type */ "./src/core/lib/which-type.js");
 
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\PromiseType.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\PromiseType.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -56666,7 +56666,7 @@ var PromiseType = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash_zip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash_zip__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash_flatten__ = __webpack_require__(/*! lodash/flatten */ "./node_modules/lodash/flatten.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash_flatten___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_lodash_flatten__);
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\SetType.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\SetType.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -57025,7 +57025,7 @@ var SetType = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_classnames__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_classnames___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_classnames__);
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\StringType.js';
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\StringType.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -57142,7 +57142,7 @@ var StringType = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\UndefinedType.js",
+var _jsxFileName = "C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\core\\components\\types\\UndefinedType.js",
     _this = this;
 
 
@@ -57305,7 +57305,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 var _version = "0.1.3";
-var API = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}).REACT_APP_API || '';
+var API = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}).REACT_APP_API || '.';
 
 var ips = ['127.0.0.1'];
 _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -57315,7 +57315,7 @@ _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regene
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return fetch('./ips/');
+          return fetch(API + '/ips/');
 
         case 2:
           res = _context.sent;
@@ -57343,7 +57343,7 @@ var welcome = function welcome() {
 var help = function help() {
   return {
     value: ':listen [id] - starts remote debugging session\n:capture [selector] - capture element in remote session by clicking or providing a selector\n:theme dark|light\n:clear\n:history\n:about\n:version\n\n$_ = last element\n\nIP Addresses ' + ips.map(function (ip) {
-      return '<a href="http://' + ip + '">' + ip + '</a>';
+      return '<a href="' + window.location.protocol + '//' + ip + '">' + ip + '</a>';
     }).join(', ') + ('\n\n' + about().value),
     html: true
   };
@@ -58241,7 +58241,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__index_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_remotejsconsole_css__ = __webpack_require__(/*! ./core/remotejsconsole.css */ "./src/core/remotejsconsole.css");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_remotejsconsole_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_remotejsconsole_css__);
-var _jsxFileName = 'C:\\nvm\\v12.13.0\\node_modules\\remotejsconsole-cli\\src\\index.js',
+var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\index.js',
     _this = this;
 
 
@@ -58421,10 +58421,10 @@ function unregister() {
   \**********************************************************************************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\nvm\v12.13.0\node_modules\remotejsconsole-cli\node_modules\react-dev-utils\webpackHotDevClient.js */"./node_modules/react-dev-utils/webpackHotDevClient.js");
-__webpack_require__(/*! C:\nvm\v12.13.0\node_modules\remotejsconsole-cli\config\polyfills.js */"./config/polyfills.js");
-__webpack_require__(/*! C:\nvm\v12.13.0\node_modules\remotejsconsole-cli\node_modules\react-error-overlay\lib\index.js */"./node_modules/react-error-overlay/lib/index.js");
-module.exports = __webpack_require__(/*! C:\nvm\v12.13.0\node_modules\remotejsconsole-cli\src\index.js */"./src/index.js");
+__webpack_require__(/*! C:\nvm\v8.17.0\node_modules\remotejsconsole-cli\node_modules\react-dev-utils\webpackHotDevClient.js */"./node_modules/react-dev-utils/webpackHotDevClient.js");
+__webpack_require__(/*! C:\nvm\v8.17.0\node_modules\remotejsconsole-cli\config\polyfills.js */"./config/polyfills.js");
+__webpack_require__(/*! C:\nvm\v8.17.0\node_modules\remotejsconsole-cli\node_modules\react-error-overlay\lib\index.js */"./node_modules/react-error-overlay/lib/index.js");
+module.exports = __webpack_require__(/*! C:\nvm\v8.17.0\node_modules\remotejsconsole-cli\src\index.js */"./src/index.js");
 
 
 /***/ })

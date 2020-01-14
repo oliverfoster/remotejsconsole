@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <script src="/js/EventSource.js"></script>
+  <script src="./js/EventSource.js"></script>
   <script>
     /* jshint browser:true */
     var id = window.location.search.replace(/.*\?/, '');
@@ -19,12 +19,12 @@
       }
       var xhr = new XMLHttpRequest();
       var params = 'data=' + encodeURIComponent(event.data);
-      xhr.open('POST', '/remote/' + id + '/log', true);
+      xhr.open('POST', './remote/' + id + '/log', true);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.send(params);
     }, false);
     setTimeout(function () {
-      var sse = new EventSource('/remote/' + id + '/run');
+      var sse = new EventSource('./remote/' + id + '/run');
       sse.addEventListener("message", function (event) {
         window.top.postMessage({
           payload: event.data,

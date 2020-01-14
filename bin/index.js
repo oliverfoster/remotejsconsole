@@ -9,4 +9,4 @@ var opts = Object.assign({}, ...process.argv.map((arg)=>{
 	return { [matches[1]]: matches[2] };
 }).filter(Boolean));
 
-app(opts.port);
+app(opts.port, opts.sport);

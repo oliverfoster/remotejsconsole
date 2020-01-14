@@ -1,6 +1,6 @@
 {
   "name": "remotejsconsole-cli",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "bin": {
     "remotejsconsole": "bin/index.js"
   },
@@ -92,7 +92,7 @@
   "scripts": {
     "env": "env",
     "start": "node server/index.js",
-    "build": "rm -rf build; cat src/*.css > src/core/remotejsconsole.css; PUBLIC_URL=// REACT_APP_VERSION=$npm_package_version node scripts/build.js",
+    "build": "rm -rf build; cat src/*.css > src/core/remotejsconsole.css; PUBLIC_URL=.// REACT_APP_VERSION=$npm_package_version node scripts/build.js",
     "styles": "cat src/*.css > src/core/jsconsole.css"
   },
   "jest": {

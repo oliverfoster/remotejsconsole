@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
+const https = require('https');
 const bodyParser = require('body-parser');
 const uuid = require('node-uuid').v4;
 const ES = require('./es');
@@ -8,9 +9,11 @@ const cors = require('./cors');
 const version = require(__dirname + '/../package.json').version;
 const open = require('open');
 
-module.exports = function(PORT) {
 
-  const app = express();
+module.exports = function(PORT, SPORT) {
+
+  const app = express();  
+
   const sessions = {
     run: new ES('run'),
     log: new ES('log'),
@@ -82,9 +85,20 @@ module.exports = function(PORT) {
   const public_path = path.join(__dirname, '/../build').replace(/\\/g,"/");
   app.use(express.static(public_path));
 
-  const server = app.listen(process.env.PORT || PORT || 8000, () => {
-    console.log('listening on http://localhost:%s', server.address().port);
-    open(`http://localhost:${server.address().port}`);
-  });
+  let server;
+  if (!SPORT) {
+    server = app.listen(process.env.PORT || PORT || 8000, () => {
+      console.log('listening on http://localhost:%s', server.address().port);
+      open(`http://localhost:${server.address().port}`);
+    });
+  } else {
+    server = https.createServer({
+      key: fs.readFileSync(__dirname+'/../cert/server.key'),
+      cert: fs.readFileSync(__dirname+'/../cert/server.cert')
+    }, app).listen(process.env.SPORT || SPORT || 8001, function () {
+      console.log('listening on https://localhost:%s', server.address().port);
+      open(`https://localhost:${server.address().port}`);
+    });
+  }
 
 };
