@@ -5,7 +5,7 @@ const https = require('https');
 const bodyParser = require('body-parser');
 const uuid = require('node-uuid').v4;
 const ES = require('./es');
-const cors = require('./cors');
+let cors = require('./cors');
 const version = require(__dirname + '/../package.json').version;
 const open = require('open');
 
