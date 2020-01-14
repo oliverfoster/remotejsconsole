@@ -41,7 +41,7 @@
 }
 
 .Line .input:before {
-  background-image: url(/in.svg);
+  background-image: url(./in.svg);
   top: 0.5rem;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .Line .output:before {
-  background-image: url(/out.svg);
+  background-image: url(./out.svg);
 }
 
 .Line .output.log:before {
@@ -58,7 +58,7 @@
 }
 
 .Line .error.output:before {
-  background-image: url(/error.svg);
+  background-image: url(./error.svg);
 }
 
 .Line:hover .LineNav,

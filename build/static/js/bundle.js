@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "149ffeec7727d383b1f8"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0f3bb548e283f22e09ae"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1832,7 +1832,7 @@ var stripAnsi = __webpack_require__(/*! strip-ansi */ "./node_modules/strip-ansi
 var hasAnsi = __webpack_require__(/*! has-ansi */ "./node_modules/has-ansi/index.js");
 var supportsColor = __webpack_require__(/*! supports-color */ "./node_modules/chalk/node_modules/supports-color/index.js");
 var defineProps = Object.defineProperties;
-var isSimpleWindowsTerm = process.platform === 'win32' && !/^xterm/i.test(__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}).TERM);
+var isSimpleWindowsTerm = process.platform === 'win32' && !/^xterm/i.test(__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}).TERM);
 
 function Chalk(options) {
 	// detect mode if not set manually
@@ -2045,7 +2045,7 @@ var hasFlag = function (flag) {
 };
 
 module.exports = (function () {
-	if ('FORCE_COLOR' in __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"})) {
+	if ('FORCE_COLOR' in __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"})) {
 		return true;
 	}
 
@@ -2070,15 +2070,15 @@ module.exports = (function () {
 		return true;
 	}
 
-	if ('COLORTERM' in __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"})) {
+	if ('COLORTERM' in __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"})) {
 		return true;
 	}
 
-	if (__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}).TERM === 'dumb') {
+	if (__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}).TERM === 'dumb') {
 		return false;
 	}
 
-	if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}).TERM)) {
+	if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}).TERM)) {
 		return true;
 	}
 
@@ -3595,134 +3595,6 @@ module.exports = factory;
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/core/remotejsconsole.css":
-/* no static exports found */
-/* all exports used */
-/*!********************************************************************************************************************!*\
-  !*** ./~/css-loader?{"importLoaders":1}!./~/postcss-loader/lib?{"ident":"postcss"}!./src/core/remotejsconsole.css ***!
-  \********************************************************************************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../~/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "* {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n\nbody, html, #root {\n  height: 100%;\n}\n\n.App {\n  outline: none;\n  height: 100%;\n  font-size: 0.7rem;\n  line-height: 1.4rem;\n  font-family: \"Menlo\", consolas, monospace;\n}\n\n.App.top {\n  padding-top: 2.6rem;\n}\n\n.react-terminal-container {\n  width: 100%;\n}\n.ArrayType {\n\n}.Autocomplete {\n  color: #BDBDBD;\n  z-index: -10;\n  position: absolute;\n}\n\n.Autocomplete .matching {\n  color: transparent;\n}\n.theme-dark,\n.theme-dark .Line,\n.theme-dark .Input {\n  background: #282c34;\n  color: #abb2bf;\n}\n\n.theme-dark .Input {\n  border-top: 1px solid rgb(84, 84, 84);\n}\n\n.theme-dark.top .Input {\n  background: black;\n  -webkit-box-shadow: 0px 1px 1px rgba(146, 145, 145, 0.26);\n          box-shadow: 0px 1px 1px rgba(146, 145, 145, 0.26);\n}\n\n.theme-dark .string.bareString {\n  color: #abb2bf;\n}\n\n.theme-dark .string.quote:before,\n.theme-dark .string.quote:after {\n  color: #abb2bf;\n}\n\n.theme-dark .Line {\n  border-bottom: 1px solid rgb(84, 84, 84);\n}\n\n.theme-dark .Input,\n.theme-dark .Input textarea,\n.theme-dark .prompt.input {\n  color: rgb(222, 222, 222);\n}\n\n.theme-dark .function.function em,\n.theme-dark .Line em {\n  color: #c678dd;\n}\n\n.theme-dark .number {\n  color: #d19a66;\n}\n\n.theme-dark .string {\n  color: #98c379;\n}\n\n.theme-dark .icon {\n  background-color: rgb(99, 104, 115);\n}\n\n.theme-dark .Line .response.error {\n  background: rgb(39, 5, 5);\n}\n\n.theme-dark a {\n  color: #c678dd;\n}\n.Filter {\n  height: 1rem;\n  display: inline-block;\n}\n\n.Filter .inner {\n  border-radius: 20px;\n  display: inline-block;\n  border: 1px solid #2196F3;\n  background: white;\n  /*overflow: hidden;*/\n  padding-right: 1rem;\n  position: relative;\n  left: 1.75rem;\n  z-index: 0;\n  line-height: 1rem;\n}\n\n.Filter.is-hidden .inner {\n  display: none;\n}\n\n.Filter.is-visible .icon {\n  opacity: .99;\n  background-color: #2196F3;\n}\n\n.Filter input {\n  font-family: \"Menlo\", consolas, monospace;\n  color: #333;\n  width: 8rem;\n  outline: 0;\n  border: 0;\n  background: transparent;\n  padding: .25rem .5rem;\n  font-size: .75rem;\n}\n.node-preview {\n  display: inline-block;\n  max-width: 400px;\n  vertical-align: bottom;\n  overflow: hidden;\n  white-space: nowrap;\n  -o-text-overflow: ellipsis;\n     text-overflow: ellipsis;\n}\nbody {\n  margin: 0;\n  padding: 0;\n  font-family: sans-serif;\n}\n.Input {\n  display: block;\n  width: 100%;\n  z-index: 10;\n  position: relative;\n  border-top: 1px solid #eee;\n}\n\n.top .Input {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  background: #E6E8F2;\n  /*border-bottom: 1px solid #aaabb8;*/\n  -webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.4);\n          box-shadow: 0px 1px 1px rgba(0,0,0,.4);\n}\n\n.Input:before {\n  position: absolute;\n  content: '';\n  background-image: url(/prompt.svg);\n  background-size: contain;\n  top: 0.7rem;\n  left: 0.4rem;\n  width: 12px;\n  height: 12px;\n  background-position: 50% 50%;\n  background-repeat: no-repeat;\n}\n\n.Line .input:before {\n  background-image: url(/in.svg);\n}\n\n.Input .cli,\n.Autocomplete {\n  resize: none;\n  background: none;\n  font-family: \"Menlo\", consolas, monospace;\n  border: 0;\n  padding: 0.4rem;\n  padding-left: 1.4rem;\n  display: block;\n  width: 100%;\n  outline: none;\n  font-size: inherit;\n  line-height: inherit;\n}\n.Line {\n  line-height: 1rem;\n  /* padding: 0.6rem;*/\n  border-bottom: 1px solid #eee;\n  position: relative;\n}\n\n.Line:last-child {\n  border: 0;\n}\n\n.Line .input,\n.Line .output {\n  display: -ms-flexbox;\n  display: flex;\n  max-width: 100%;\n  position: relative;\n  padding: 0.4rem;\n  padding-left: 1.4rem;\n}\n\n.Line .input {\n  white-space: pre;\n}\n\n.Line .input.prompt {\n  white-space: pre-wrap;\n  overflow-x: auto;\n}\n\n.Line .prompt:before {\n  position: absolute;\n  content: '';\n  background-size: contain;\n  top: 0.5rem;\n  left: 0.4rem;\n  width: 12px;\n  height: 12px;\n  /*scale: 0.75 0.75;*/\n  background-position: 50% 50%;\n  background-repeat: no-repeat;\n}\n\n.Line .input:before {\n  background-image: url(/in.svg);\n  top: 0.5rem;\n}\n\n.Line .prompt.error {\n  background: #FFEFEF;\n}\n\n.Line .output:before {\n  background-image: url(/out.svg);\n}\n\n.Line .output.log:before {\n  background-image: none;\n}\n\n.Line .error.output:before {\n  background-image: url(/error.svg);\n}\n\n.Line:hover .LineNav,\n.Line:focus .LineNav {\n  display: block;\n}\n\n.Line.out:before {\n  content: '';\n  display: block;\n  position: absolute;\n  width: 2px;\n  height: calc(100% - 2rem);\n  background: blue;\n  left: 0.5rem;\n}\n\n.Line em {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  padding-right: 5px;\n  cursor: pointer;\n  color: #2196F3;\n}\n\n.Line .error em,\n.Line .error .bareString {\n  color: #F44336;\n}\n\n.Line .sep {\n  padding-right: 1ch;\n}\n\n.Line .type em:hover {\n  text-decoration: underline;\n}\n\n.ArrayType.closed {\n  cursor: pointer;\n}\n\n.Line .type.closed * em:hover {\n  text-decoration: none;\n}\n\n.ArrayType.closed > div {\n  display: inline-block;\n}\n\n.group {\n  margin-left: 0.5rem;\n  /*margin-top: 0.5rem;*/\n}\n\n.key-value {\n  /* line-height: 1.2rem; */\n  /* white-space: nowrap; */\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.closed .key-value {\n  display: inline;\n}\n\n.index {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  vertical-align: text-bottom;\n}\n\n.key, .index {\n  /* line-height: 1.2rem; */\n  color: #979797;\n  margin-right: .5rem;\n}\n\n\n.arb-info {\n  color: #999;\n}\n\n.Line > .output > .type {\n  overflow-x: auto;\n}\n.LineNav {\n  position: absolute;\n  right: .25rem;\n  top: .2rem;\n  z-index: 10;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n\n.bottom .LineNav {\n  top: auto;\n  bottom: .5rem;\n}\n\n.icon {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border: 0;\n  background: none;\n  overflow: hidden;\n  text-indent: -9999px;\n  display: inline-block;\n  border-radius: 2px;\n  width: 1rem;\n  height: 1rem;\n  margin: 0 0.25rem;\n  padding: 0;\n  vertical-align: top;\n  cursor: pointer;\n  opacity: 0.3;\n  border-radius: 100px;\n  padding: 12px;\n  background-color: #ddd;\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: 60%;\n  outline: none;\n  z-index: 10;\n}\n\n.icon:hover {\n  /*\n  opacity: 0.99 =\n    this is a hack because somehow `opacity: 1` sets the\n    layer order _below_ a previous element with a lesser\n    z-index. No idea why though, suspect specific to chrome.\n  */\n  opacity: 0.99;\n  background-color: #2196F3;\n  -webkit-box-shadow: 0 0 4px 0px #2196F3;\n          box-shadow: 0 0 4px 0px #2196F3;\n}\n\n.icon:active {\n  -webkit-box-shadow: 0 0 0 1px #2196F3;\n          box-shadow: 0 0 0 1px #2196F3;\n}\n\n.icon.copy {\n  background-image: url(/copy.svg);\n}\n\n.icon.link {\n  background-image: url(/link.svg);\n}\n\n.icon.search {\n  background-image: url(/search.svg);\n}\n\n.icon.expand {\n  background-image: url(/expand.svg);\n  padding: 0;\n  background-color: transparent;\n  margin: 0;\n  margin-left: -0.5rem;\n  margin-top: 0.4rem;\n  background-size: contain;\n  height: 8px;\n  width: 8px;\n}\n\n.icon.expand:hover {\n  background-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n.type {\n  display: inline-block;\n  line-height: 1rem;\n  min-height: 1rem;\n}\n\n.type + .type {\n  margin-left: 0.75rem;\n}\n\n.type.object.closed .header,\n.type.object.closed .group,\n.type.object.closed .group > div {\n  display: inline;\n}\n\n.type.closed .type {\n  display: inline;\n}\n\n.string {\n  position: relative;\n  color: #4CAF50;\n  white-space: nowrap;\n}\n\n.string.quote:before,\n.string.quote:after {\n  content: '\"';\n  color: #111;\n}\n\n.bareString.string {\n  color: #111;\n}\n\n.string.toggle {\n  white-space: normal;\n  white-space: pre-wrap;\n}\n\n.number {\n  color: #0000c0;\n}\n\n.bool {\n  color: #E91E63;\n}\n\n.function.function em {\n  color: #1976D2;\n}\n\n.undefined {\n  color: #aaa;\n}\n\n.null {\n  color: #9C27B0;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/index.css":
-/* no static exports found */
-/* all exports used */
-/*!*****************************************************************************************************!*\
-  !*** ./~/css-loader?{"importLoaders":1}!./~/postcss-loader/lib?{"ident":"postcss"}!./src/index.css ***!
-  \*****************************************************************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../~/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  font-family: sans-serif;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/lib/css-base.js":
-/* no static exports found */
-/* all exports used */
-/*!**************************************!*\
-  !*** ./~/css-loader/lib/css-base.js ***!
-  \**************************************/
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/debug/src/browser.js":
 /* no static exports found */
 /* all exports used */
@@ -3888,7 +3760,7 @@ function load() {
 
   // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
   if (!r && typeof process !== 'undefined' && 'env' in process) {
-    r = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}).DEBUG;
+    r = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}).DEBUG;
   }
 
   return r;
@@ -17884,7 +17756,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/fbjs/l
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -28179,7 +28051,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/fbjs/l
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -28602,7 +28474,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/fbjs/l
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -40124,7 +39996,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/fbjs/l
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -49825,472 +49697,6 @@ module.exports = function (str) {
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/lib/addStyles.js":
-/* no static exports found */
-/* all exports used */
-/*!*****************************************!*\
-  !*** ./~/style-loader/lib/addStyles.js ***!
-  \*****************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-
-var stylesInDom = {};
-
-var	memoize = function (fn) {
-	var memo;
-
-	return function () {
-		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-		return memo;
-	};
-};
-
-var isOldIE = memoize(function () {
-	// Test for IE <= 9 as proposed by Browserhacks
-	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-	// Tests for existence of standard globals is to allow style-loader
-	// to operate correctly into non-standard environments
-	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
-});
-
-var getElement = (function (fn) {
-	var memo = {};
-
-	return function(selector) {
-		if (typeof memo[selector] === "undefined") {
-			memo[selector] = fn.call(this, selector);
-		}
-
-		return memo[selector]
-	};
-})(function (target) {
-	return document.querySelector(target)
-});
-
-var singleton = null;
-var	singletonCounter = 0;
-var	stylesInsertedAtTop = [];
-
-var	fixUrls = __webpack_require__(/*! ./urls */ "./node_modules/style-loader/lib/urls.js");
-
-module.exports = function(list, options) {
-	if (typeof DEBUG !== "undefined" && DEBUG) {
-		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-	}
-
-	options = options || {};
-
-	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-
-	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-	// tags it will allow on a page
-	if (!options.singleton) options.singleton = isOldIE();
-
-	// By default, add <style> tags to the <head> element
-	if (!options.insertInto) options.insertInto = "head";
-
-	// By default, add <style> tags to the bottom of the target
-	if (!options.insertAt) options.insertAt = "bottom";
-
-	var styles = listToStyles(list, options);
-
-	addStylesToDom(styles, options);
-
-	return function update (newList) {
-		var mayRemove = [];
-
-		for (var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-
-			domStyle.refs--;
-			mayRemove.push(domStyle);
-		}
-
-		if(newList) {
-			var newStyles = listToStyles(newList, options);
-			addStylesToDom(newStyles, options);
-		}
-
-		for (var i = 0; i < mayRemove.length; i++) {
-			var domStyle = mayRemove[i];
-
-			if(domStyle.refs === 0) {
-				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-
-				delete stylesInDom[domStyle.id];
-			}
-		}
-	};
-};
-
-function addStylesToDom (styles, options) {
-	for (var i = 0; i < styles.length; i++) {
-		var item = styles[i];
-		var domStyle = stylesInDom[item.id];
-
-		if(domStyle) {
-			domStyle.refs++;
-
-			for(var j = 0; j < domStyle.parts.length; j++) {
-				domStyle.parts[j](item.parts[j]);
-			}
-
-			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
-			}
-		} else {
-			var parts = [];
-
-			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
-			}
-
-			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-		}
-	}
-}
-
-function listToStyles (list, options) {
-	var styles = [];
-	var newStyles = {};
-
-	for (var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = options.base ? item[0] + options.base : item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-
-		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
-		else newStyles[id].parts.push(part);
-	}
-
-	return styles;
-}
-
-function insertStyleElement (options, style) {
-	var target = getElement(options.insertInto)
-
-	if (!target) {
-		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-	}
-
-	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
-	if (options.insertAt === "top") {
-		if (!lastStyleElementInsertedAtTop) {
-			target.insertBefore(style, target.firstChild);
-		} else if (lastStyleElementInsertedAtTop.nextSibling) {
-			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-		} else {
-			target.appendChild(style);
-		}
-		stylesInsertedAtTop.push(style);
-	} else if (options.insertAt === "bottom") {
-		target.appendChild(style);
-	} else {
-		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-	}
-}
-
-function removeStyleElement (style) {
-	if (style.parentNode === null) return false;
-	style.parentNode.removeChild(style);
-
-	var idx = stylesInsertedAtTop.indexOf(style);
-	if(idx >= 0) {
-		stylesInsertedAtTop.splice(idx, 1);
-	}
-}
-
-function createStyleElement (options) {
-	var style = document.createElement("style");
-
-	options.attrs.type = "text/css";
-
-	addAttrs(style, options.attrs);
-	insertStyleElement(options, style);
-
-	return style;
-}
-
-function createLinkElement (options) {
-	var link = document.createElement("link");
-
-	options.attrs.type = "text/css";
-	options.attrs.rel = "stylesheet";
-
-	addAttrs(link, options.attrs);
-	insertStyleElement(options, link);
-
-	return link;
-}
-
-function addAttrs (el, attrs) {
-	Object.keys(attrs).forEach(function (key) {
-		el.setAttribute(key, attrs[key]);
-	});
-}
-
-function addStyle (obj, options) {
-	var style, update, remove, result;
-
-	// If a transform function was defined, run it on the css
-	if (options.transform && obj.css) {
-	    result = options.transform(obj.css);
-
-	    if (result) {
-	    	// If transform returns a value, use that instead of the original css.
-	    	// This allows running runtime transformations on the css.
-	    	obj.css = result;
-	    } else {
-	    	// If the transform function returns a falsy value, don't add this css.
-	    	// This allows conditional loading of css
-	    	return function() {
-	    		// noop
-	    	};
-	    }
-	}
-
-	if (options.singleton) {
-		var styleIndex = singletonCounter++;
-
-		style = singleton || (singleton = createStyleElement(options));
-
-		update = applyToSingletonTag.bind(null, style, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-
-	} else if (
-		obj.sourceMap &&
-		typeof URL === "function" &&
-		typeof URL.createObjectURL === "function" &&
-		typeof URL.revokeObjectURL === "function" &&
-		typeof Blob === "function" &&
-		typeof btoa === "function"
-	) {
-		style = createLinkElement(options);
-		update = updateLink.bind(null, style, options);
-		remove = function () {
-			removeStyleElement(style);
-
-			if(style.href) URL.revokeObjectURL(style.href);
-		};
-	} else {
-		style = createStyleElement(options);
-		update = applyToTag.bind(null, style);
-		remove = function () {
-			removeStyleElement(style);
-		};
-	}
-
-	update(obj);
-
-	return function updateStyle (newObj) {
-		if (newObj) {
-			if (
-				newObj.css === obj.css &&
-				newObj.media === obj.media &&
-				newObj.sourceMap === obj.sourceMap
-			) {
-				return;
-			}
-
-			update(obj = newObj);
-		} else {
-			remove();
-		}
-	};
-}
-
-var replaceText = (function () {
-	var textStore = [];
-
-	return function (index, replacement) {
-		textStore[index] = replacement;
-
-		return textStore.filter(Boolean).join('\n');
-	};
-})();
-
-function applyToSingletonTag (style, index, remove, obj) {
-	var css = remove ? "" : obj.css;
-
-	if (style.styleSheet) {
-		style.styleSheet.cssText = replaceText(index, css);
-	} else {
-		var cssNode = document.createTextNode(css);
-		var childNodes = style.childNodes;
-
-		if (childNodes[index]) style.removeChild(childNodes[index]);
-
-		if (childNodes.length) {
-			style.insertBefore(cssNode, childNodes[index]);
-		} else {
-			style.appendChild(cssNode);
-		}
-	}
-}
-
-function applyToTag (style, obj) {
-	var css = obj.css;
-	var media = obj.media;
-
-	if(media) {
-		style.setAttribute("media", media)
-	}
-
-	if(style.styleSheet) {
-		style.styleSheet.cssText = css;
-	} else {
-		while(style.firstChild) {
-			style.removeChild(style.firstChild);
-		}
-
-		style.appendChild(document.createTextNode(css));
-	}
-}
-
-function updateLink (link, options, obj) {
-	var css = obj.css;
-	var sourceMap = obj.sourceMap;
-
-	/*
-		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-		and there is no publicPath defined then lets turn convertToAbsoluteUrls
-		on by default.  Otherwise default to the convertToAbsoluteUrls option
-		directly
-	*/
-	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-	if (options.convertToAbsoluteUrls || autoFixUrls) {
-		css = fixUrls(css);
-	}
-
-	if (sourceMap) {
-		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-	}
-
-	var blob = new Blob([css], { type: "text/css" });
-
-	var oldSrc = link.href;
-
-	link.href = URL.createObjectURL(blob);
-
-	if(oldSrc) URL.revokeObjectURL(oldSrc);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/lib/urls.js":
-/* no static exports found */
-/* all exports used */
-/*!************************************!*\
-  !*** ./~/style-loader/lib/urls.js ***!
-  \************************************/
-/***/ (function(module, exports) {
-
-
-/**
- * When source maps are enabled, `style-loader` uses a link element with a data-uri to
- * embed the css on the page. This breaks all relative urls because now they are relative to a
- * bundle instead of the current page.
- *
- * One solution is to only use full urls, but that may be impossible.
- *
- * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
- *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
- *
- */
-
-module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
-
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
-  }
-
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
-  }
-
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
-
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
-
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
-
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
-
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
-
-		// convert the url to a full url
-		var newUrl;
-
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
-
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
-
-	// send back the fixed css
-	return fixedCss;
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/symbol-observable/es/index.js":
 /* exports provided: default */
 /* exports used: default */
@@ -52233,6 +51639,116 @@ module.exports = function(module) {
   self.fetch.polyfill = true
 })(typeof self !== 'undefined' ? self : this);
 
+
+/***/ }),
+
+/***/ "./src/App.css":
+/* no static exports found */
+/*!*********************!*\
+  !*** ./src/App.css ***!
+  \*********************/
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./src/ArrayType.css":
+/* no static exports found */
+/*!***************************!*\
+  !*** ./src/ArrayType.css ***!
+  \***************************/
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./src/Autocomplete.css":
+/* no static exports found */
+/*!******************************!*\
+  !*** ./src/Autocomplete.css ***!
+  \******************************/
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./src/DarkTheme.css":
+/* no static exports found */
+/*!***************************!*\
+  !*** ./src/DarkTheme.css ***!
+  \***************************/
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./src/Filter.css":
+/* no static exports found */
+/*!************************!*\
+  !*** ./src/Filter.css ***!
+  \************************/
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./src/HTMLElementType.css":
+/* no static exports found */
+/*!*********************************!*\
+  !*** ./src/HTMLElementType.css ***!
+  \*********************************/
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./src/Input.css":
+/* no static exports found */
+/*!***********************!*\
+  !*** ./src/Input.css ***!
+  \***********************/
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./src/Line.css":
+/* no static exports found */
+/*!**********************!*\
+  !*** ./src/Line.css ***!
+  \**********************/
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./src/LineNav.css":
+/* no static exports found */
+/*!*************************!*\
+  !*** ./src/LineNav.css ***!
+  \*************************/
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./src/Types.css":
+/* no static exports found */
+/*!***********************!*\
+  !*** ./src/Types.css ***!
+  \***********************/
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -57304,8 +56820,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 /*global window EventSource fetch */
 
 
-var _version = "0.1.3";
-var API = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_VERSION":"0.1.3"}).REACT_APP_API || '.';
+var _version = "0.1.4";
+var API = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}).REACT_APP_API || '.';
 
 var ips = ['127.0.0.1'];
 _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -58084,42 +57600,6 @@ var reducer = function reducer() {
 
 /***/ }),
 
-/***/ "./src/core/remotejsconsole.css":
-/* no static exports found */
-/*!**************************************!*\
-  !*** ./src/core/remotejsconsole.css ***!
-  \**************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(/*! !../../~/css-loader??ref--4-1!../../~/postcss-loader/lib??postcss!./remotejsconsole.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/core/remotejsconsole.css");
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(/*! ../../~/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(true) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept(/*! !../../~/css-loader??ref--4-1!../../~/postcss-loader/lib??postcss!./remotejsconsole.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/core/remotejsconsole.css", function() {
-			var newContent = __webpack_require__(/*! !../../~/css-loader??ref--4-1!../../~/postcss-loader/lib??postcss!./remotejsconsole.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/core/remotejsconsole.css");
-			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
 /***/ "./src/core/store.js":
 /* exports provided: default */
 /* exports used: default */
@@ -58189,34 +57669,9 @@ var store = finalCreateStore(__WEBPACK_IMPORTED_MODULE_0__reducers__["a" /* defa
 /*!***********************!*\
   !*** ./src/index.css ***!
   \***********************/
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(/*! !../~/css-loader??ref--4-1!../~/postcss-loader/lib??postcss!./index.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/index.css");
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(/*! ../~/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(true) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept(/*! !../~/css-loader??ref--4-1!../~/postcss-loader/lib??postcss!./index.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/index.css", function() {
-			var newContent = __webpack_require__(/*! !../~/css-loader??ref--4-1!../~/postcss-loader/lib??postcss!./index.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/index.css");
-			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -58239,10 +57694,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__registerServiceWorker__ = __webpack_require__(/*! ./registerServiceWorker */ "./src/registerServiceWorker.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__index_css__ = __webpack_require__(/*! ./index.css */ "./src/index.css");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__index_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_remotejsconsole_css__ = __webpack_require__(/*! ./core/remotejsconsole.css */ "./src/core/remotejsconsole.css");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_remotejsconsole_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_remotejsconsole_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__App_css__ = __webpack_require__(/*! ./App.css */ "./src/App.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__App_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__App_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ArrayType_css__ = __webpack_require__(/*! ./ArrayType.css */ "./src/ArrayType.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ArrayType_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__ArrayType_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Autocomplete_css__ = __webpack_require__(/*! ./Autocomplete.css */ "./src/Autocomplete.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Autocomplete_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__Autocomplete_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__DarkTheme_css__ = __webpack_require__(/*! ./DarkTheme.css */ "./src/DarkTheme.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__DarkTheme_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__DarkTheme_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Filter_css__ = __webpack_require__(/*! ./Filter.css */ "./src/Filter.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Filter_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__Filter_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__HTMLElementType_css__ = __webpack_require__(/*! ./HTMLElementType.css */ "./src/HTMLElementType.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__HTMLElementType_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__HTMLElementType_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Input_css__ = __webpack_require__(/*! ./Input.css */ "./src/Input.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Input_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__Input_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Line_css__ = __webpack_require__(/*! ./Line.css */ "./src/Line.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Line_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__Line_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__LineNav_css__ = __webpack_require__(/*! ./LineNav.css */ "./src/LineNav.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__LineNav_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__LineNav_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Types_css__ = __webpack_require__(/*! ./Types.css */ "./src/Types.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Types_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__Types_css__);
 var _jsxFileName = 'C:\\nvm\\v8.17.0\\node_modules\\remotejsconsole-cli\\src\\index.js',
     _this = this;
+
+
+
+
+
+
+
+
+
 
 
 
@@ -58262,7 +57744,7 @@ var render = function render() {
   __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_redux__["a" /* Provider */], { store: __WEBPACK_IMPORTED_MODULE_3__core_store__["a" /* default */] }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(App, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 25
     },
     __self: _this
   })), rootEl);
@@ -58276,7 +57758,7 @@ if (true) {
     var RedBox = __webpack_require__(/*! redbox-react */ "./node_modules/redbox-react/lib/index.js").default;
     __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(RedBox, { error: error, __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 34
       },
       __self: _this
     }), rootEl);
