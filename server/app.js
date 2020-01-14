@@ -23,7 +23,12 @@ module.exports = function(PORT, SPORT, NOCORS) {
   app.use(bodyParser.json( { limit: '100MB', inflate: true } ));
   app.disable('x-powered-by');
 
-  if (!NOCORS) app.use(cors);
+  if (!NOCORS) {
+    console.log("Using cors...");
+    app.use(cors);
+  } else {
+    console.log("Not using cors...");
+  }
 
   app.get('/ips/', (req, res)=>{
     const ips = [];
