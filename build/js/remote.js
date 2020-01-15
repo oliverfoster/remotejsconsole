@@ -221,51 +221,29 @@
   var remoteWindow = null;
   var queue = [];
   var msgType = '';
-  var uri = lastSrc.replace(/\?.*/,"").split("/").slice(0,-2).join("/");
 
-  var script = document.createElement("script");
-  script.src = uri+"/js/EventSource.js";
-  document.querySelector("head").appendChild(script); 
+  var remoteFrame = document.createElement('iframe');
+  remoteFrame.style.display = 'none';
+  remoteFrame.src = origin + '/remote.html?' + id;
 
-  function sendMessage(msg, origin) {
-    if (msg === '__init__' || typeof msg !== 'string') {
-      return;
-    }
-    var xhr = new XMLHttpRequest();
-    var params = 'data=' + encodeURIComponent(msg);
-    xhr.open('POST', uri+'/remote/' + id + '/log', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send(params);
-  }
-
-  setTimeout(function () {
-    var sse = new EventSource(uri+'/remote/' + id + '/run');
-    sse.addEventListener("message", function (event) {
-      receiveMessage({
-        payload: event.data,
-        silent: false
-      });
-    });
-    sse.addEventListener("silent", function (event) {
-      receiveMessage({
-        payload: event.data,
-        silent: true
-      });
-    });
-  }, 13);
+  // an attempt to allow this code to be included in the head element
+  document.documentElement.appendChild(remoteFrame);
 
   var silent = false;
 
-  function receiveMessage(msg) {
-
-    // this isn't for us
-    if (typeof msg !== "object" || typeof msg.payload !== 'string') {
+  window.addEventListener('message', function (event) {
+    if (event.origin !== origin) {
       return;
     }
 
-    var payload = msg.payload;
+    // this isn't for us
+    if (typeof event.data !== "object" || typeof event.data.payload !== 'string') {
+      return;
+    }
 
-    silent = Boolean(msg.silent);
+    var payload = event.data.payload;
+
+    silent = Boolean(event.data.silent);
     var functionName = !silent ? 'echo' : 'silent';
 
     // eval the payload command
@@ -274,12 +252,12 @@
     } catch (e) {
       silent = false;
       _console.log(e.stack, event);
-      remote.error(e, msg);
+      remote.error(e, event.data);
     }
 
     silent = false;
 
-  }
+  }, false);
 
   var timers = {}; // timers for console.time and console.timeEnd
 
@@ -501,8 +479,7 @@
       var argsObj = stringify(response, undefined),
           msg = JSON.stringify({ response: argsObj, cmd: cmd, type: msgType });
       if (remoteWindow) {
-        sendMessage(msg);
-        //remoteWindow.postMessage(msg, origin);
+        remoteWindow.postMessage(msg, origin);
       } else {
         queue.push(msg);
       }
@@ -515,8 +492,7 @@
       var argsObj = stringify(response, undefined),
           msg = JSON.stringify({ response: argsObj, cmd: cmd, type: msgType, silent: true });
       if (remoteWindow) {
-        //remoteWindow.postMessage(msg, origin);
-        sendMessage(msg, origin);
+        remoteWindow.postMessage(msg, origin);
       } else {
         queue.push(msg);
       }
@@ -524,8 +500,7 @@
     error: function (error, cmd) {
       var msg = JSON.stringify({ response: error.message, cmd: cmd, type: 'error' });
       if (remoteWindow) {
-        //remoteWindow.postMessage(msg, origin);
-        sendMessage(msg, origin);
+        remoteWindow.postMessage(msg, origin);
       } else {
         queue.push(msg);
       }
@@ -567,7 +542,16 @@
   remote.debug = remote.dir = remote.log;
   remote.warn = remote.info;
 
-  sendMessage(stringify({ response: 'Connection established with ' + window.location.toString() + '\n' + navigator.userAgent, type: 'info' }));
+  remoteFrame.onload = function () {
+    remoteWindow = remoteFrame.contentWindow;
+    remoteWindow.postMessage('__init__', origin);
+
+    remoteWindow.postMessage(stringify({ response: 'Connection established with ' + window.location.toString() + '\n' + navigator.userAgent, type: 'info' }), origin);
+
+    for (var i = 0; i < queue.length; i++) {
+      remoteWindow.postMessage(queue[i], origin);
+    }
+  };
 
   window.remote = remote;
 

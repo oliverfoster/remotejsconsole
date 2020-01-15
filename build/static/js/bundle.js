@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0f3bb548e283f22e09ae"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "28164a74980aea0ed1ff"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1832,7 +1832,7 @@ var stripAnsi = __webpack_require__(/*! strip-ansi */ "./node_modules/strip-ansi
 var hasAnsi = __webpack_require__(/*! has-ansi */ "./node_modules/has-ansi/index.js");
 var supportsColor = __webpack_require__(/*! supports-color */ "./node_modules/chalk/node_modules/supports-color/index.js");
 var defineProps = Object.defineProperties;
-var isSimpleWindowsTerm = process.platform === 'win32' && !/^xterm/i.test(__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}).TERM);
+var isSimpleWindowsTerm = process.platform === 'win32' && !/^xterm/i.test(__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.5"}).TERM);
 
 function Chalk(options) {
 	// detect mode if not set manually
@@ -2045,7 +2045,7 @@ var hasFlag = function (flag) {
 };
 
 module.exports = (function () {
-	if ('FORCE_COLOR' in __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"})) {
+	if ('FORCE_COLOR' in __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.5"})) {
 		return true;
 	}
 
@@ -2070,15 +2070,15 @@ module.exports = (function () {
 		return true;
 	}
 
-	if ('COLORTERM' in __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"})) {
+	if ('COLORTERM' in __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.5"})) {
 		return true;
 	}
 
-	if (__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}).TERM === 'dumb') {
+	if (__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.5"}).TERM === 'dumb') {
 		return false;
 	}
 
-	if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}).TERM)) {
+	if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(__webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.5"}).TERM)) {
 		return true;
 	}
 
@@ -3760,7 +3760,7 @@ function load() {
 
   // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
   if (!r && typeof process !== 'undefined' && 'env' in process) {
-    r = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}).DEBUG;
+    r = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.5"}).DEBUG;
   }
 
   return r;
@@ -17756,7 +17756,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/fbjs/l
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.5"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -28051,7 +28051,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/fbjs/l
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.5"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -28474,7 +28474,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/fbjs/l
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.5"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -39996,7 +39996,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/fbjs/l
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.5"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -56820,8 +56820,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 /*global window EventSource fetch */
 
 
-var _version = "0.1.4";
-var API = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.4"}).REACT_APP_API || '.';
+var _version = "0.1.5";
+var API = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.5"}).REACT_APP_API || '.';
 
 var ips = ['127.0.0.1'];
 _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -57312,6 +57312,7 @@ var commands = {
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 /*global document window */
+var API = __webpack_require__.i({"NODE_ENV":"development","PUBLIC_URL":".","REACT_APP_VERSION":"0.1.5"}).REACT_APP_API || '.';
 
 /* harmony default export */ __webpack_exports__["a"] = ((function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(command, silent) {
@@ -57367,7 +57368,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                           res.value = '';
                           return resolve(res);
                         };
-                        xhr.open('POST', '/remote/' + remoteId + '/run', true);
+                        xhr.open('POST', API + '/remote/' + remoteId + '/run', true);
                         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                         xhr.send(params);
                         _context.next = 23;
