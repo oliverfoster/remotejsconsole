@@ -212,14 +212,9 @@
   var last = getRemoteScript();
 
   var lastSrc = last.getAttribute('src');
-  if (lastSrc.substr(0, 'http'.length) !== "http") {
-    debugger;
-  }
   var id = lastSrc.replace(/.*\?/, '');
   var protocol = /https?:\/\//.exec(lastSrc)[0];
   var origin = protocol + lastSrc.substr(protocol.length).replace(/\/.*$/, '');
-  var remoteWindow = null;
-  var queue = [];
   var msgType = '';
   var uri = lastSrc.replace(/\?.*/,"").split("/").slice(0,-2).join("/");
 
@@ -500,12 +495,7 @@
 
       var argsObj = stringify(response, undefined),
           msg = JSON.stringify({ response: argsObj, cmd: cmd, type: msgType });
-      if (remoteWindow) {
-        sendMessage(msg);
-        //remoteWindow.postMessage(msg, origin);
-      } else {
-        queue.push(msg);
-      }
+      sendMessage(msg);
     },
     silent: function() {
       var args = [].slice.call(arguments, 0),
@@ -514,21 +504,11 @@
 
       var argsObj = stringify(response, undefined),
           msg = JSON.stringify({ response: argsObj, cmd: cmd, type: msgType, silent: true });
-      if (remoteWindow) {
-        //remoteWindow.postMessage(msg, origin);
-        sendMessage(msg, origin);
-      } else {
-        queue.push(msg);
-      }
+      sendMessage(msg, origin);
     },
     error: function (error, cmd) {
       var msg = JSON.stringify({ response: error.message, cmd: cmd, type: 'error' });
-      if (remoteWindow) {
-        //remoteWindow.postMessage(msg, origin);
-        sendMessage(msg, origin);
-      } else {
-        queue.push(msg);
-      }
+      sendMessage(msg, origin);
     },
     time: function(title){
       if(typeof title !== 'string') {
@@ -544,11 +524,7 @@
       delete timers[title];
       var plain = title + ': ' + execTime + 'ms';
       var msg = JSON.stringify({ response: plain, cmd:  'remote console.log', type: '' });
-      if (remoteWindow) {
-        remoteWindow.postMessage(msg, origin);
-      } else {
-        queue.push(msg);
-      }
+      sendMessage(msg, origin);
     },
     assert: function(condition, object){
       if(!condition) {
