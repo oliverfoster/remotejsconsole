@@ -81,7 +81,11 @@
       var matches = Function.call.bind(proto.matchesSelector ||
         proto.mozMatchesSelector || proto.webkitMatchesSelector ||
         proto.msMatchesSelector || proto.oMatchesSelector);
-      return matches(element, cssRule.selectorText);
+      try {
+        return matches(element, cssRule.selectorText);
+      } catch(err) {
+        return false;
+      }
     };
 
     return {
