@@ -185,7 +185,11 @@
       for (i = 0; i < names.length; i++) {
         // safety from max stack
         if (depth < maxDepth || names[i] === "__remotejsconsole_preview" || names[i] === "__remotejsconsole_id" || names[i] === "__remotejsconsole_resolution") {
-          parts.push('"'+names[i] + '": ' + stringify(o[names[i]], depth+1, ignoreMaxDepth));
+          try {
+            parts.push('"'+names[i] + '": ' + stringify(o[names[i]], depth+1, ignoreMaxDepth));
+          } catch(err) {
+            parts.push('"'+names[i] + '": ' + stringify(err, depth+1, ignoreMaxDepth));
+          }
         } else {
           parts.push('"'+names[i] + '": T("[object Error]", { message: "End of inspection depth" } )');
         }
