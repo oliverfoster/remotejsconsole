@@ -507,7 +507,7 @@
       sendMessage(msg, origin);
     },
     error: function (error, cmd) {
-      var msg = JSON.stringify({ response: error.message, cmd: cmd, type: 'error' });
+      var msg = JSON.stringify({ response: error.stack, cmd: cmd, type: 'error' });
       sendMessage(msg, origin);
     },
     time: function(title){
