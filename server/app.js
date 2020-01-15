@@ -83,6 +83,7 @@ module.exports = function(PORT, SPORT, NOCORS) {
     const { es } = req.locals;
     const isClient = (type === 'log');
     if (!isClient && Date.now() - (es.lastWrite[id] || 0) > 10000) {
+      console.log("no client connected, last write %s", es.lastWrite[id]);
       res.send(false);
       return;
     }
