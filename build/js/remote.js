@@ -269,7 +269,7 @@
     } catch (e) {
       silent = false;
       _console.log(e.stack, event);
-      remote.error(e.stack, msg);
+      remote.error(e.message+"\n"+e.stack, msg);
     }
 
     silent = false;
