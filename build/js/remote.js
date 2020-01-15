@@ -269,7 +269,7 @@
     } catch (e) {
       silent = false;
       _console.log(e.stack, event);
-      remote.error(e, msg);
+      remote.error(e.stack, msg);
     }
 
     silent = false;
@@ -507,7 +507,7 @@
       sendMessage(msg, origin);
     },
     error: function (error, cmd) {
-      var msg = JSON.stringify({ response: error.stack, cmd: cmd, type: 'error' });
+      var msg = JSON.stringify({ response: error, cmd: cmd, type: 'error' });
       sendMessage(msg, origin);
     },
     time: function(title){
