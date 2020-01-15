@@ -12,13 +12,17 @@ class ES {
   }
 
   add(id, res, xhr = false, isClient) {
-    console.log('adding and sending to %s', id);
     res.writeHead(200, {
       'Content-Type': 'text/event-stream',
       'Cache-Control': 'no-cache',
     });
     res.write(`eventId: 0\n\n`);
-    if (isClient) this.lastWrite[id] = Date.now();
+    if (isClient) {
+      console.log('adding and sending to client %s', id);
+      this.lastWrite[id] = Date.now();
+    } else {
+      console.log('adding and sending to console %s', id);
+    }
     this.sessions[id] = res;
     this.sessions[id].xhr = xhr;
     this.flush(id);
