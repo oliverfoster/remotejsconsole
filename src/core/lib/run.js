@@ -1,4 +1,5 @@
 /*global document window */
+const API = process.env.REACT_APP_API || '.';
 
 export default async function run(command, silent) {
   return new Promise(async resolve => {
@@ -35,7 +36,7 @@ export default async function run(command, silent) {
         res.value = '';
         return resolve(res);
       };
-      xhr.open('POST', '/remote/' + remoteId + '/run', true);
+      xhr.open('POST', `${API}/remote/` + remoteId + '/run', true);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.send(params);
     } catch (error) {
