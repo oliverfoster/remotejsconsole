@@ -81,7 +81,11 @@
       var matches = Function.call.bind(proto.matchesSelector ||
         proto.mozMatchesSelector || proto.webkitMatchesSelector ||
         proto.msMatchesSelector || proto.oMatchesSelector);
-      return matches(element, cssRule.selectorText);
+      try {
+        return matches(element, cssRule.selectorText);
+      } catch(err) {
+        return false;
+      }
     };
 
     return {
@@ -185,7 +189,11 @@
       for (i = 0; i < names.length; i++) {
         // safety from max stack
         if (depth < maxDepth || names[i] === "__remotejsconsole_preview" || names[i] === "__remotejsconsole_id" || names[i] === "__remotejsconsole_resolution") {
-          parts.push('"'+names[i] + '": ' + stringify(o[names[i]], depth+1, ignoreMaxDepth));
+          try {
+            parts.push('"'+names[i] + '": ' + stringify(o[names[i]], depth+1, ignoreMaxDepth));
+          } catch(err) {
+            parts.push('"'+names[i] + '": ' + stringify(err, depth+1, ignoreMaxDepth));
+          }
         } else {
           parts.push('"'+names[i] + '": T("[object Error]", { message: "End of inspection depth" } )');
         }
@@ -212,38 +220,55 @@
   var last = getRemoteScript();
 
   var lastSrc = last.getAttribute('src');
-  if (lastSrc.substr(0, 'http'.length) !== "http") {
-    debugger;
-  }
   var id = lastSrc.replace(/.*\?/, '');
   var protocol = /https?:\/\//.exec(lastSrc)[0];
   var origin = protocol + lastSrc.substr(protocol.length).replace(/\/.*$/, '');
-  var remoteWindow = null;
-  var queue = [];
   var msgType = '';
+  var uri = lastSrc.replace(/\?.*/,"").split("/").slice(0,-2).join("/");
 
-  var remoteFrame = document.createElement('iframe');
-  remoteFrame.style.display = 'none';
-  remoteFrame.src = origin + '/remote.html?' + id;
+  var script = document.createElement("script");
+  script.src = uri+"/js/EventSource.js";
+  document.querySelector("head").appendChild(script); 
 
-  // an attempt to allow this code to be included in the head element
-  document.documentElement.appendChild(remoteFrame);
+  function sendMessage(msg, origin) {
+    if (msg === '__init__' || typeof msg !== 'string') {
+      return;
+    }
+    var xhr = new XMLHttpRequest();
+    var params = 'data=' + encodeURIComponent(msg);
+    xhr.open('POST', uri+'/remote/' + id + '/log', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(params);
+  }
+
+  setTimeout(function () {
+    var sse = new EventSource(uri+'/remote/' + id + '/run');
+    sse.addEventListener("message", function (event) {
+      receiveMessage({
+        payload: event.data,
+        silent: false
+      });
+    });
+    sse.addEventListener("silent", function (event) {
+      receiveMessage({
+        payload: event.data,
+        silent: true
+      });
+    });
+  }, 13);
 
   var silent = false;
 
-  window.addEventListener('message', function (event) {
-    if (event.origin !== origin) {
-      return;
-    }
+  function receiveMessage(msg) {
 
     // this isn't for us
-    if (typeof event.data !== "object" || typeof event.data.payload !== 'string') {
+    if (typeof msg !== "object" || typeof msg.payload !== 'string') {
       return;
     }
 
-    var payload = event.data.payload;
+    var payload = msg.payload;
 
-    silent = Boolean(event.data.silent);
+    silent = Boolean(msg.silent);
     var functionName = !silent ? 'echo' : 'silent';
 
     // eval the payload command
@@ -252,12 +277,12 @@
     } catch (e) {
       silent = false;
       _console.log(e.stack, event);
-      remote.error(e, event.data);
+      remote.error(e.message+"\n"+e.stack, msg);
     }
 
     silent = false;
 
-  }, false);
+  }
 
   var timers = {}; // timers for console.time and console.timeEnd
 
@@ -451,12 +476,14 @@
       if (highlightedElement) {
 
         highlightedElement.classList.remove("__remotejsconsole_highlighted");
-        highlightedElement.classList.remove("__remotejsconsole_highlighted_relative");
+        if (highlightedElement) {
+          highlightedElement.classList.remove("__remotejsconsole_highlighted_relative");
+        }
         highlightedElement = null;
       }
       if (!element) return;
       highlightedElement = element;
-      if (!window.getComputedStyle(highlightedElement).position) {
+      if (highlightedElement && window.getComputedStyle(highlightedElement).position === "static") {
         highlightedElement.classList.add("__remotejsconsole_highlighted_relative");
       }
       highlightedElement.classList.add("__remotejsconsole_highlighted");
@@ -478,11 +505,7 @@
 
       var argsObj = stringify(response, undefined),
           msg = JSON.stringify({ response: argsObj, cmd: cmd, type: msgType });
-      if (remoteWindow) {
-        remoteWindow.postMessage(msg, origin);
-      } else {
-        queue.push(msg);
-      }
+      sendMessage(msg);
     },
     silent: function() {
       var args = [].slice.call(arguments, 0),
@@ -491,19 +514,11 @@
 
       var argsObj = stringify(response, undefined),
           msg = JSON.stringify({ response: argsObj, cmd: cmd, type: msgType, silent: true });
-      if (remoteWindow) {
-        remoteWindow.postMessage(msg, origin);
-      } else {
-        queue.push(msg);
-      }
+      sendMessage(msg, origin);
     },
     error: function (error, cmd) {
-      var msg = JSON.stringify({ response: error.message, cmd: cmd, type: 'error' });
-      if (remoteWindow) {
-        remoteWindow.postMessage(msg, origin);
-      } else {
-        queue.push(msg);
-      }
+      var msg = JSON.stringify({ response: error, cmd: cmd, type: 'error' });
+      sendMessage(msg, origin);
     },
     time: function(title){
       if(typeof title !== 'string') {
@@ -519,11 +534,7 @@
       delete timers[title];
       var plain = title + ': ' + execTime + 'ms';
       var msg = JSON.stringify({ response: plain, cmd:  'remote console.log', type: '' });
-      if (remoteWindow) {
-        remoteWindow.postMessage(msg, origin);
-      } else {
-        queue.push(msg);
-      }
+      sendMessage(msg, origin);
     },
     assert: function(condition, object){
       if(!condition) {
@@ -542,16 +553,7 @@
   remote.debug = remote.dir = remote.log;
   remote.warn = remote.info;
 
-  remoteFrame.onload = function () {
-    remoteWindow = remoteFrame.contentWindow;
-    remoteWindow.postMessage('__init__', origin);
-
-    remoteWindow.postMessage(stringify({ response: 'Connection established with ' + window.location.toString() + '\n' + navigator.userAgent, type: 'info' }), origin);
-
-    for (var i = 0; i < queue.length; i++) {
-      remoteWindow.postMessage(queue[i], origin);
-    }
-  };
+  sendMessage(stringify({ response: 'Connection established with ' + window.location.toString() + '\n' + navigator.userAgent, type: 'info' }));
 
   window.remote = remote;
 

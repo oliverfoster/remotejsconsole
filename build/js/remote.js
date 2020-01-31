@@ -476,12 +476,14 @@
       if (highlightedElement) {
 
         highlightedElement.classList.remove("__remotejsconsole_highlighted");
-        highlightedElement.classList.remove("__remotejsconsole_highlighted_relative");
+        if (highlightedElement) {
+          highlightedElement.classList.remove("__remotejsconsole_highlighted_relative");
+        }
         highlightedElement = null;
       }
       if (!element) return;
       highlightedElement = element;
-      if (!window.getComputedStyle(highlightedElement).position) {
+      if (highlightedElement && window.getComputedStyle(highlightedElement).position === "static") {
         highlightedElement.classList.add("__remotejsconsole_highlighted_relative");
       }
       highlightedElement.classList.add("__remotejsconsole_highlighted");
