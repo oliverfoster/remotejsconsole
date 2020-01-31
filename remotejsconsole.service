@@ -7,7 +7,7 @@ SyslogIdentifier=remotejsconsole
 Type=forking
 Environment=NODE_VERSION=10.15.3
 WorkingDirectory=/app/remotejsconsole/
-ExecStart=/root/.nvm/nvm-exec forever start --pidFile /var/run/remotejsconsole.pid --workingDir /app/remotejsconsole/ -a -l /app/logs/remotejsconsole.log /app/remotejsconsole/bin/index.js --port=8100
+ExecStart=/root/.nvm/nvm-exec forever start --pidFile /var/run/remotejsconsole.pid --workingDir /app/remotejsconsole/ -a -l /app/logs/remotejsconsole.log /app/remotejsconsole/bin/index.js --port=8100 --nocors=true
 ExecStop=/root/.nvm/nvm-exec forever stop /app/remotejsconsole/bin/index.js
 PIDFile=/var/run/remotejsconsole.pid
 User=root
