@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "488d1d79afd53ae62ef3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "672ad8af4ee3de2f82ae"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -57063,7 +57063,7 @@ var listen = function () {
               };
 
               sse.onopen = function () {
-                resolve('Listening to "' + id + '"\n\nUse either of the follow methods to connect a remote browser:\n\n<script src="' + window.location.origin + '/js/remote.js?' + id + '"></script>\n\njavascript:(function(s){s.src=\'' + window.location.origin + '/js/remote.js?' + id + '\';document.body.appendChild(s)})(document.createElement(\'script\'))');
+                resolve('Listening to "' + id + '"\n\nUse either of the follow methods to connect a remote browser:\n\n<script src="' + (window.location.origin + window.location.pathname) + 'js/remote.js?' + id + '"></script>\n\njavascript:(function(s){s.src=\'' + (window.location.origin + window.location.pathname) + 'js/remote.js?' + id + '\';document.body.appendChild(s)})(document.createElement(\'script\'))');
               };
 
               sse.onmessage = function (event) {

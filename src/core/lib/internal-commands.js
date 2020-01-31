@@ -110,8 +110,8 @@ const listen = async ({ args: [id], console: internalConsole }) => {
     sse.onopen = () => {
       resolve(
         `Listening to "${id}"\n\nUse either of the follow methods to connect a remote browser:\n\n<script src="${
-          window.location.origin
-        }/js/remote.js?${id}"></script>\n\njavascript:(function(s){s.src='${window.location.origin}/js/remote.js?${id}';document.body.appendChild(s)})(document.createElement('script'))`
+          window.location.origin+window.location.pathname
+        }js/remote.js?${id}"></script>\n\njavascript:(function(s){s.src='${window.location.origin+window.location.pathname}js/remote.js?${id}';document.body.appendChild(s)})(document.createElement('script'))`
       );
     };
 
